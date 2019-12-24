@@ -1,6 +1,6 @@
 <div class="options">
   <a mat-raised-button href="https://github.com/automatica-core/ngx-gridster/tree/master/src/app/sections/home"
-     target="_blank" class="source-code-button">
+    target="_blank" class="source-code-button">
     <mat-icon>open_in_new</mat-icon>
     Source
   </a>
@@ -8,8 +8,9 @@
 <div class="options-header">
   <mat-form-field>
     <mat-select aria-label="Grid type" [(ngModel)]="options.gridType" (ngModelChange)="changedOptions()"
-                placeholder="Grid Type">
+      placeholder="Grid Type">
       <mat-option value="fit">Fit to screen</mat-option>
+      <mat-option value="fitToGridOptions">Fit to settings</mat-option>
       <mat-option value="scrollVertical">Scroll Vertical</mat-option>
       <mat-option value="scrollHorizontal">Scroll Horizontal</mat-option>
       <mat-option value="fixed">Fixed</mat-option>
@@ -18,9 +19,8 @@
     </mat-select>
   </mat-form-field>
   <mat-form-field>
-    <mat-select aria-label="Display grid lines" [(ngModel)]="options.displayGrid"
-                placeholder="Display grid lines"
-                (ngModelChange)="changedOptions()">
+    <mat-select aria-label="Display grid lines" [(ngModel)]="options.displayGrid" placeholder="Display grid lines"
+      (ngModelChange)="changedOptions()">
       <mat-option value="always">Always</mat-option>
       <mat-option value="onDrag&Resize">On Drag & Resize</mat-option>
       <mat-option value="none">None</mat-option>
@@ -44,21 +44,21 @@
   </mat-checkbox>
   <mat-form-field>
     <input matInput [(ngModel)]="options.margin" min="0" max="30" step="1" type="number" placeholder="Margin"
-           (ngModelChange)="changedOptions()">
+      (ngModelChange)="changedOptions()">
   </mat-form-field>
   <mat-checkbox [(ngModel)]="options.outerMargin" (ngModelChange)="changedOptions()">Outer Margin</mat-checkbox>
   <mat-form-field>
     <input matInput [(ngModel)]="options.mobileBreakpoint" type="number" placeholder="Mobile Breakpoint"
-           (ngModelChange)="changedOptions()">
+      (ngModelChange)="changedOptions()">
   </mat-form-field>
 
   <mat-form-field>
     <input matInput [(ngModel)]="options.fixedColWidth" type="number" placeholder="Fixed Col Width"
-           (ngModelChange)="changedOptions()">
+      (ngModelChange)="changedOptions()">
   </mat-form-field>
   <mat-form-field>
     <input matInput [(ngModel)]="options.fixedRowHeight" type="number" placeholder="Fixed Row Height"
-           (ngModelChange)="changedOptions()">
+      (ngModelChange)="changedOptions()">
   </mat-form-field>
   <button mat-mini-fab (click)="addItem()" class="add-button cols-2">
     <mat-icon>add</mat-icon>
@@ -79,13 +79,13 @@
           <mat-icon>open_with</mat-icon>
         </button>
         <button mat-icon-button mat-raised-button class="remove-button" (mousedown)="removeItem($event, item)"
-                (touchstart)="removeItem($event, item)">
+          (touchstart)="removeItem($event, item)">
           <mat-icon>delete</mat-icon>
         </button>
       </div>
       <label *ngIf="!item.hasContent">{{item.label}}</label>
       <button mat-mini-fab *ngIf="!item.hasContent" (mousedown)="removeItem($event, item)"
-              (touchstart)="removeItem($event, item)">
+        (touchstart)="removeItem($event, item)">
         <mat-icon>delete</mat-icon>
       </button>
     </div>

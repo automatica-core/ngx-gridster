@@ -1,6 +1,6 @@
 {
   "name": "ngx-gridster",
-  "version": "8.3.8",
+  "version": "8.3.9",
   "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^8.0.0",

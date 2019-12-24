@@ -1,8 +1,8 @@
-import {Injectable, Renderer2} from '@angular/core';
+import { Injectable, Renderer2 } from '@angular/core';
 
-import {GridsterComponentInterface} from './gridster.interface';
-import {GridType} from './gridsterConfig.interface';
-import {GridsterItem} from './gridsterItem.interface';
+import { GridsterComponentInterface } from './gridster.interface';
+import { GridType } from './gridsterConfig.interface';
+import { GridsterItem } from './gridsterItem.interface';
 
 @Injectable()
 export class GridsterRenderer {
@@ -20,7 +20,7 @@ export class GridsterRenderer {
       if (this.gridster.$options.keepFixedHeightInMobile) {
         renderer.setStyle(el, 'height', (item.rows * this.gridster.$options.fixedRowHeight) + 'px');
       } else {
-        renderer.setStyle(el, 'height',  (item.rows * this.gridster.curWidth / item.cols ) + 'px');
+        renderer.setStyle(el, 'height', (item.rows * this.gridster.curWidth / item.cols) + 'px');
       }
       if (this.gridster.$options.keepFixedWidthInMobile) {
         renderer.setStyle(el, 'width', this.gridster.$options.fixedColWidth + 'px');
@@ -85,9 +85,10 @@ export class GridsterRenderer {
       removeClass1 = GridType.Fit;
       removeClass2 = GridType.ScrollVertical;
       removeClass3 = GridType.Fixed;
-    } else if (this.gridster.$options.gridType === GridType.Fixed) {
+    } else if (this.gridster.$options.gridType === GridType.Fixed || this.gridster.$options.gridType === GridType.FitToGridOptions) {
       this.gridster.curColWidth = this.gridster.$options.fixedColWidth +
         (this.gridster.$options.ignoreMarginInRow ? 0 : this.gridster.$options.margin);
+
       this.gridster.curRowHeight = this.gridster.$options.fixedRowHeight +
         (this.gridster.$options.ignoreMarginInRow ? 0 : this.gridster.$options.margin);
       addClass = GridType.Fixed;

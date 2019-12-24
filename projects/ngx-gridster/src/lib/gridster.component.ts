@@ -13,16 +13,17 @@ import {
   Inject
 } from '@angular/core';
 
-import {GridsterConfigService} from './gridsterConfig.constant';
-import {GridsterConfig} from './gridsterConfig.interface';
-import {GridsterUtils} from './gridsterUtils.service';
-import {GridsterEmptyCell} from './gridsterEmptyCell.service';
-import {GridsterCompact} from './gridsterCompact.service';
-import {GridsterConfigS} from './gridsterConfigS.interface';
-import {GridsterComponentInterface} from './gridster.interface';
-import {GridsterItemComponentInterface} from './gridsterItemComponent.interface';
-import {GridsterRenderer} from './gridsterRenderer.service';
-import {GridsterItem} from './gridsterItem.interface';
+import { GridsterConfigService } from './gridsterConfig.constant';
+import { GridsterConfig } from './gridsterConfig.interface';
+import { GridsterUtils } from './gridsterUtils.service';
+import { GridsterEmptyCell } from './gridsterEmptyCell.service';
+import { GridsterCompact } from './gridsterCompact.service';
+import { GridsterConfigS } from './gridsterConfigS.interface';
+import { GridsterComponentInterface } from './gridster.interface';
+import { GridsterItemComponentInterface } from './gridsterItemComponent.interface';
+import { GridsterRenderer } from './gridsterRenderer.service';
+import { GridsterItem } from './gridsterItem.interface';
+import { GridType } from './gridsterConfig.interface';
 
 @Component({
   selector: 'gridster',
@@ -53,7 +54,14 @@ export class GridsterComponent implements OnInit, OnChanges, OnDestroy, Gridster
   compact: GridsterCompact;
   gridRenderer: GridsterRenderer;
 
-  constructor(@Inject(ElementRef) el: ElementRef, @Inject(Renderer2) public renderer: Renderer2, @Inject(ChangeDetectorRef) public cdRef: ChangeDetectorRef, @Inject(NgZone) public zone: NgZone) {
+  constructor(
+    @Inject(ElementRef) el: ElementRef,
+    @Inject(Renderer2)
+    public renderer: Renderer2,
+    @Inject(ChangeDetectorRef)
+    public cdRef: ChangeDetectorRef,
+    @Inject(NgZone) public zone: NgZone) {
+
     this.el = el.nativeElement;
     this.$options = JSON.parse(JSON.stringify(GridsterConfigService));
     this.calculateLayoutDebounce = GridsterUtils.debounce(this.calculateLayout.bind(this), 0);
@@ -127,7 +135,8 @@ export class GridsterComponent implements OnInit, OnChanges, OnDestroy, Gridster
 
   optionsChanged(): void {
     this.setOptions();
-    let widgetsIndex: number = this.grid.length - 1, widget: GridsterItemComponentInterface;
+    let widgetsIndex: number = this.grid.length - 1;
+    let widget: GridsterItemComponentInterface;
     for (; widgetsIndex >= 0; widgetsIndex--) {
       widget = this.grid[widgetsIndex];
       widget.updateOptions();
@@ -193,6 +202,7 @@ export class GridsterComponent implements OnInit, OnChanges, OnDestroy, Gridster
 
   setGridDimensions(): void {
     this.setGridSize();
+
     if (!this.mobile && this.$options.mobileBreakpoint > this.curWidth) {
       this.mobile = !this.mobile;
       this.renderer.addClass(this.el, 'mobile');
@@ -200,15 +210,28 @@ export class GridsterComponent implements OnInit, OnChanges, OnDestroy, Gridster
       this.mobile = !this.mobile;
       this.renderer.removeClass(this.el, 'mobile');
     }
-    let rows = this.$options.minRows, columns = this.$options.minCols;
 
-    let widgetsIndex = this.grid.length - 1, widget;
-    for (; widgetsIndex >= 0; widgetsIndex--) {
-      widget = this.grid[widgetsIndex];
-      if (!widget.notPlaced) {
-        rows = Math.max(rows, widget.$item.y + widget.$item.rows);
-        columns = Math.max(columns, widget.$item.x + widget.$item.cols);
+    let rows = this.$options.minRows;
+    let columns = this.$options.minCols;
+
+
+
+    if (this.$options.gridType === GridType.FitToGridOptions) {
+      rows = this.$options.maxRows;
+      columns = this.$options.maxCols;
+    } else {
+
+      let widgetsIndex = this.grid.length - 1;
+      let widget;
+
+      for (; widgetsIndex >= 0; widgetsIndex--) {
+        widget = this.grid[widgetsIndex];
+        if (!widget.notPlaced) {
+          rows = Math.max(rows, widget.$item.y + widget.$item.rows);
+          columns = Math.max(columns, widget.$item.x + widget.$item.cols);
+        }
       }
+
     }
 
     if (this.columns !== columns || this.rows !== rows) {
@@ -228,6 +251,7 @@ export class GridsterComponent implements OnInit, OnChanges, OnDestroy, Gridster
     this.setGridDimensions();
     if (this.$options.outerMargin) {
       let marginWidth = -this.$options.margin;
+
       if (this.$options.outerMarginLeft !== null) {
         marginWidth += this.$options.outerMarginLeft;
         this.renderer.setStyle(this.el, 'padding-left', this.$options.outerMarginLeft + 'px');
@@ -235,6 +259,7 @@ export class GridsterComponent implements OnInit, OnChanges, OnDestroy, Gridster
         marginWidth += this.$options.margin;
         this.renderer.setStyle(this.el, 'padding-left', this.$options.margin + 'px');
       }
+
       if (this.$options.outerMarginRight !== null) {
         marginWidth += this.$options.outerMarginRight;
         this.renderer.setStyle(this.el, 'padding-right', this.$options.outerMarginRight + 'px');
@@ -242,8 +267,10 @@ export class GridsterComponent implements OnInit, OnChanges, OnDestroy, Gridster
         marginWidth += this.$options.margin;
         this.renderer.setStyle(this.el, 'padding-right', this.$options.margin + 'px');
       }
+
       this.curColWidth = (this.curWidth - marginWidth) / this.columns;
       let marginHeight = -this.$options.margin;
+
       if (this.$options.outerMarginTop !== null) {
         marginHeight += this.$options.outerMarginTop;
         this.renderer.setStyle(this.el, 'padding-top', this.$options.outerMarginTop + 'px');
@@ -251,6 +278,7 @@ export class GridsterComponent implements OnInit, OnChanges, OnDestroy, Gridster
         marginHeight += this.$options.margin;
         this.renderer.setStyle(this.el, 'padding-top', this.$options.margin + 'px');
       }
+
       if (this.$options.outerMarginBottom !== null) {
         marginHeight += this.$options.outerMarginBottom;
         this.renderer.setStyle(this.el, 'padding-bottom', this.$options.outerMarginBottom + 'px');
@@ -258,7 +286,9 @@ export class GridsterComponent implements OnInit, OnChanges, OnDestroy, Gridster
         marginHeight += this.$options.margin;
         this.renderer.setStyle(this.el, 'padding-bottom', this.$options.margin + 'px');
       }
+
       this.curRowHeight = (this.curHeight - marginHeight) / this.rows;
+
     } else {
       this.curColWidth = (this.curWidth + this.$options.margin) / this.columns;
       this.curRowHeight = (this.curHeight + this.$options.margin) / this.rows;
@@ -279,7 +309,9 @@ export class GridsterComponent implements OnInit, OnChanges, OnDestroy, Gridster
       this.renderer.setStyle(this.el, 'height', '');
     }
 
-    let widgetsIndex: number = this.grid.length - 1, widget: GridsterItemComponentInterface;
+    let widgetsIndex: number = this.grid.length - 1;
+    let widget: GridsterItemComponentInterface;
+
     for (; widgetsIndex >= 0; widgetsIndex--) {
       widget = this.grid[widgetsIndex];
       widget.setSize();
@@ -299,8 +331,14 @@ export class GridsterComponent implements OnInit, OnChanges, OnDestroy, Gridster
       this.renderer.removeClass(this.el, 'display-grid');
     }
     this.setGridDimensions();
-    this.gridColumns.length = Math.max(this.columns, Math.floor(this.curWidth / this.curColWidth)) || 0;
-    this.gridRows.length = Math.max(this.rows, Math.floor(this.curHeight / this.curRowHeight)) || 0;
+
+    if (this.$options.gridType === GridType.FitToGridOptions) {
+      this.gridColumns.length = this.$options.maxCols;
+      this.gridRows.length = this.$options.maxRows;
+    } else {
+      this.gridColumns.length = Math.max(this.columns, Math.floor(this.curWidth / this.curColWidth)) || 0;
+      this.gridRows.length = Math.max(this.rows, Math.floor(this.curHeight / this.curRowHeight)) || 0;
+    }
     this.cdRef.markForCheck();
   }
 
@@ -426,7 +464,8 @@ export class GridsterComponent implements OnInit, OnChanges, OnDestroy, Gridster
       newItem.rows = this.$options.defaultItemRows;
     }
     this.setGridDimensions();
-    let rowsIndex = startingFrom.y || 0, colsIndex;
+    let rowsIndex = startingFrom.y || 0;
+    let colsIndex;
     for (; rowsIndex < this.rows; rowsIndex++) {
       newItem.y = rowsIndex;
       colsIndex = startingFrom.x || 0;
@@ -459,9 +498,9 @@ export class GridsterComponent implements OnInit, OnChanges, OnDestroy, Gridster
   }
 
   getLastPossiblePosition(item: GridsterItem): GridsterItem {
-    let farthestItem: { y: number, x: number } = {y: 0, x: 0};
+    let farthestItem: { y: number, x: number } = { y: 0, x: 0 };
     farthestItem = this.grid.reduce((prev: any, curr: GridsterItemComponentInterface) => {
-      const currCoords = {y: curr.$item.y + curr.$item.rows - 1, x: curr.$item.x + curr.$item.cols - 1};
+      const currCoords = { y: curr.$item.y + curr.$item.rows - 1, x: curr.$item.x + curr.$item.cols - 1 };
       if (GridsterUtils.compareItems(prev, currCoords) === 1) {
         return currCoords;
       } else {
