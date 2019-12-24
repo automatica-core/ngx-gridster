@@ -7,7 +7,7 @@ import {
   GridsterItem,
   GridsterItemComponentInterface,
   GridType
-} from 'angular-gridster2';
+} from 'ngx-gridster';
 
 @Component({
   selector: 'app-grid-events',

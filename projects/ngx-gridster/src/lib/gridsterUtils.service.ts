@@ -11,7 +11,10 @@ export class GridsterUtils {
         if (typeof obj2[p] === 'object') {
           obj1[p] = GridsterUtils.merge(obj1[p], obj2[p], properties[p]);
         } else {
-          obj1[p] = obj2[p];
+
+          if (obj1[p] !== void 0) {
+            obj1[p] = obj2[p];
+          }
         }
       }
     }

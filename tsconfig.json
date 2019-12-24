@@ -21,8 +21,8 @@
       "dom"
     ],
     "paths": {
-      "angular-gridster2": [
-        "dist/angular-gridster2"
+      "ngx-gridster": [
+        "dist/ngx-gridster"
       ]
     }
   },

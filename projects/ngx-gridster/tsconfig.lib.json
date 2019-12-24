@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../out-tsc/angular-gridster2",
+    "outDir": "../../out-tsc/ngx-gridster",
     "target": "es2015",
     "module": "esnext",
     "moduleResolution": "node",

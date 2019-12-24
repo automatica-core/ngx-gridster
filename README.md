@@ -1,13 +1,14 @@
 ngx-gridster (original angular-gridster2)
 ==============
-[![npm version](https://badge.fury.io/js/angular-gridster2.svg)](https://badge.fury.io/js/ngx-gridster)
-[![dependencies Status](https://david-dm.org/tiberiuzuld/angular-gridster2/status.svg)](https://david-dm.org/automatica-core/ngx-gridster)
-[![devDependencies Status](https://david-dm.org/tiberiuzuld/angular-gridster2/dev-status.svg)](https://david-dm.org/automatica-core/ngx-gridster?type=dev)
-[![downloads](https://img.shields.io/npm/dm/angular-gridster2.svg)](https://www.npmjs.com/package/ngx-gridster)
+[![npm version](https://badge.fury.io/js/ngx-gridster.svg)](https://badge.fury.io/js/ngx-gridster)
+[![dependencies Status](https://david-dm.org/automatica-core/ngx-gridster/status.svg)](https://david-dm.org/automatica-core/ngx-gridster)
+[![devDependencies Status](https://david-dm.org/automatica-core/ngx-gridster/dev-status.svg)](https://david-dm.org/automatica-core/ngx-gridster?type=dev)
+[![downloads](https://img.shields.io/npm/dm/ngx-gridster.svg)](https://www.npmjs.com/package/ngx-gridster)
 [![Donate with Bitcoin](https://en.cryptobadges.io/badge/micro/1Ck4XgAxys3aBjdesKQQ62zx7m4vozUest)](https://en.cryptobadges.io/donate/1Ck4XgAxys3aBjdesKQQ62zx7m4vozUest)
+
 Donate DogeCoin: DPVz6RSAJrXZqTF4sGXpS1dqwvU36hSaAQ
 
-### Angular implementation of angular-gridster [Demo](http://tiberiuzuld.github.io/angular-gridster2)
+### Angular implementation of angular-gridster [Demo](https://automatica-core.github.io/ngx-gridster/)
 
 ### Requires Angular 8.x
 ### For other Angular versions check the other branches.
@@ -40,7 +41,7 @@ import { GridsterModule } from 'ngx-gridster';
 
 Initialize a simple dashboard:
 ```typescript
-   import { GridsterConfig, GridsterItem }  from 'angular-gridster2';
+   import { GridsterConfig, GridsterItem }  from 'ngx-gridster';
    options: GridsterConfig;
    dashboard: Array<GridsterItem>;
 

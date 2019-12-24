@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation} from '@angular/core';
 
-import {CompactType, GridsterConfig, GridsterItem, GridType} from 'angular-gridster2';
+import {CompactType, GridsterConfig, GridsterItem, GridType} from 'ngx-gridster';
 
 @Component({
   selector: 'app-compact',

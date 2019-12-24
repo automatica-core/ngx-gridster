@@ -123,7 +123,7 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "repo": "https://github.com/automatica-core/ngx-gridster.git",
+            "repo": "https://GH_TOKEN@github.com/automatica-core/ngx-gridster.git",
             "name": "Patrik Pfaffenbauer (p3root)",
             "email": "patrik.pfaffenbauer@p3-software.eu"
           }

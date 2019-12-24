@@ -1,12 +1,12 @@
 {
   "name": "ngx-gridster",
-  "version": "8.2.0",
+  "version": "8.3.1",
   "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^8.0.0",
     "@angular/core": "^8.0.0"
   },
-  "homepage": "https://github.com/automatica-core/ngx-gridster",
+  "homepage": "https://automatica-core.github.io/ngx-gridster/",
   "bugs": {
     "url": "https://github.com/automatica-core/ngx-gridster/issues"
   },
@@ -27,6 +27,8 @@
     "widgets"
   ],
   "authors": [
-    "Tiberiu Zuld"
+    "Tiberiu Zuld",
+    "Patrik Pfaffenbauer",
+    "p3root"
   ]
 }

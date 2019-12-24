@@ -1,6 +1,6 @@
 {
   "name": "ngx-gridster",
-  "version": "8.3.0",
+  "version": "8.3.2",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -15,7 +15,7 @@
     "build-npm": "ng build ngx-gridster  --prod",
     "deploy": "npm run build-npm && ng deploy"
   },
-  "homepage": "https://github.com/automatica-core/ngx-gridster",
+  "homepage": "https://automatica-core.github.io/ngx-gridster/",
   "bugs": {
     "url": "https://github.com/automatica-core/ngx-gridster/issues"
   },
