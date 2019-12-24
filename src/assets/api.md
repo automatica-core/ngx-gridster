@@ -9,4 +9,4 @@ getNextPossiblePosition(item: GridsterItem) | call to get a viable position for 
 getFirstPossiblePosition(item: GridsterItem) | call to get the first viable position for an item. Returns a copy of the item with the future position. | GridsterItem
 getLastPossiblePosition(item: GridsterItem) | call to get a viable position for item. Returns a copy of the item with the future position. | GridsterItem
 
-To see how to push/swap/pushResize items from code look at the source of this component [here](https://github.com/tiberiuzuld/angular-gridster2/blob/master/src/app/sections/api/api.component.ts)
+To see how to push/swap/pushResize items from code look at the source of this component [here](https://github.com/automatica-core/ngx-gridster/blob/master/src/app/sections/api/api.component.ts)

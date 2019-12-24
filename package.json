@@ -1,29 +1,29 @@
 {
-  "name": "angular-gridster2",
-  "version": "8.2.0",
+  "name": "ngx-gridster",
+  "version": "8.3.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "serve": "ng serve",
     "build": "ng build",
-    "build-lib": "ng build angular-gridster2",
+    "build-lib": "ng build ngx-gridster",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build-demo": "ng build --prod",
-    "build-npm": "ng build angular-gridster2 --prod",
+    "build-npm": "ng build ngx-gridster  --prod",
     "deploy": "npm run build-npm && ng deploy"
   },
-  "homepage": "https://tiberiuzuld.github.io/angular-gridster2",
+  "homepage": "https://github.com/automatica-core/ngx-gridster",
   "bugs": {
-    "url": "https://github.com/tiberiuzuld/angular-gridster2/issues"
+    "url": "https://github.com/automatica-core/ngx-gridster/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tiberiuzuld/angular-gridster2.git"
+    "url": "https://github.com/automatica-core/ngx-gridster.git"
   },
-  "description": "Angular gridster 2",
+  "description": "ngx gridster",
   "keywords": [
     "angular",
     "angular2",
@@ -36,7 +36,9 @@
     "widgets"
   ],
   "authors": [
-    "Tiberiu Zuld"
+    "Tiberiu Zuld",
+    "Pfaffenbauer Patrik",
+    "p3root"
   ],
   "files": [
     "dist/*"

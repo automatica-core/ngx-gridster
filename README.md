@@ -1,10 +1,11 @@
-angular-gridster2
+ngx-gridster (original angular-gridster2)
 ==============
-[![npm version](https://badge.fury.io/js/angular-gridster2.svg)](https://badge.fury.io/js/angular-gridster2)
-[![dependencies Status](https://david-dm.org/tiberiuzuld/angular-gridster2/status.svg)](https://david-dm.org/tiberiuzuld/angular-gridster2)
-[![devDependencies Status](https://david-dm.org/tiberiuzuld/angular-gridster2/dev-status.svg)](https://david-dm.org/tiberiuzuld/angular-gridster2?type=dev)
-[![downloads](https://img.shields.io/npm/dm/angular-gridster2.svg)](https://www.npmjs.com/package/angular-gridster2)
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/tiberiuzuld)
+[![npm version](https://badge.fury.io/js/angular-gridster2.svg)](https://badge.fury.io/js/ngx-gridster)
+[![dependencies Status](https://david-dm.org/tiberiuzuld/angular-gridster2/status.svg)](https://david-dm.org/automatica-core/ngx-gridster)
+[![devDependencies Status](https://david-dm.org/tiberiuzuld/angular-gridster2/dev-status.svg)](https://david-dm.org/automatica-core/ngx-gridster?type=dev)
+[![downloads](https://img.shields.io/npm/dm/angular-gridster2.svg)](https://www.npmjs.com/package/ngx-gridster)
+[![Donate with Bitcoin](https://en.cryptobadges.io/badge/micro/1Ck4XgAxys3aBjdesKQQ62zx7m4vozUest)](https://en.cryptobadges.io/donate/1Ck4XgAxys3aBjdesKQQ62zx7m4vozUest)
+Donate DogeCoin: DPVz6RSAJrXZqTF4sGXpS1dqwvU36hSaAQ
 
 ### Angular implementation of angular-gridster [Demo](http://tiberiuzuld.github.io/angular-gridster2)
 
@@ -13,12 +14,12 @@ angular-gridster2
 
 ## Install
 
-``npm install angular-gridster2 --save``
+``npm install ngx-gridster --save``
 
 Should work out of the box with webpack, respectively angular-cli.
 
 ```javascript
-import { GridsterModule } from 'angular-gridster2';
+import { GridsterModule } from 'ngx-gridster';
 
 @NgModule({
   imports: [ GridsterModule ],
@@ -80,7 +81,7 @@ Initialize a simple dashboard:
 
 
 ### Having iFrame in widgets content
-iFrames can interfere with drag/resize of widgets. For a workaround please read [this issue #233](https://github.com/tiberiuzuld/angular-gridster2/issues/233)
+iFrames can interfere with drag/resize of widgets. For a workaround please read [this issue #233](https://github.com/automatica-core/ngx-gridster/issues/233)
 
 ### Interact with content without dragging
 
@@ -120,7 +121,7 @@ Option 2 (with text selection):
 </gridster-item>
 ```
  
-### Contributors [here](https://github.com/tiberiuzuld/angular-gridster2/graphs/contributors)
+### Contributors [here](https://github.com/automatica-core/ngx-gridster/graphs/contributors)
 
 ### Supporters
 @matpag (Mattia Pagini)

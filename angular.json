@@ -38,7 +38,7 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "baseHref": "/angular-gridster2/",
+              "baseHref": "/ngx-gridster/",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -123,45 +123,45 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "repo": "https://GH_TOKEN@github.com/tiberiuzuld/angular-gridster2.git",
-            "name": "Tiberiu Zuld",
-            "email": "tiberiuzuld@gmail.com"
+            "repo": "https://github.com/automatica-core/ngx-gridster.git",
+            "name": "Patrik Pfaffenbauer (p3root)",
+            "email": "patrik.pfaffenbauer@p3-software.eu"
           }
         }
       }
     },
-    "angular-gridster2": {
+    "ngx-gridster": {
       "projectType": "library",
-      "root": "projects/angular-gridster2",
-      "sourceRoot": "projects/angular-gridster2/src",
+      "root": "projects/ngx-gridster",
+      "sourceRoot": "projects/ngx-gridster/src",
       "prefix": "gridster",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/angular-gridster2/tsconfig.lib.json",
-            "project": "projects/angular-gridster2/ng-package.json"
+            "tsConfig": "projects/ngx-gridster/tsconfig.lib.json",
+            "project": "projects/ngx-gridster/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/angular-gridster2/ng-package.prod.json"
+              "project": "projects/ngx-gridster/ng-package.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/angular-gridster2/src/test.ts",
-            "tsConfig": "projects/angular-gridster2/tsconfig.spec.json",
-            "karmaConfig": "projects/angular-gridster2/karma.conf.js"
+            "main": "projects/ngx-gridster/src/test.ts",
+            "tsConfig": "projects/ngx-gridster/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-gridster/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/angular-gridster2/tsconfig.lib.json",
-              "projects/angular-gridster2/tsconfig.spec.json"
+              "projects/ngx-gridster/tsconfig.lib.json",
+              "projects/ngx-gridster/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
